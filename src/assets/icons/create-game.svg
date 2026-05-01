@@ -1,0 +1,55 @@
+<svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="diceBase" x1="12" y1="12" x2="52" y2="52" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#FFF7E2"/>
+      <stop offset="0.3" stop-color="#E7CA86"/>
+      <stop offset="0.66" stop-color="#BC8C45"/>
+      <stop offset="1" stop-color="#68461F"/>
+    </linearGradient>
+    <radialGradient id="diceGlow" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(32 28) rotate(42) scale(25 20)">
+      <stop offset="0" stop-color="#FFF9ED" stop-opacity="0.88"/>
+      <stop offset="0.55" stop-color="#F3DDA8" stop-opacity="0.36"/>
+      <stop offset="1" stop-color="#F3DDA8" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="diceShadow" x="10" y="14" width="44" height="44" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feDropShadow dx="0" dy="2" stdDeviation="2" flood-color="#000000" flood-opacity="0.45"/>
+    </filter>
+  </defs>
+
+  <g filter="url(#diceShadow)">
+    <!-- Front face -->
+    <rect x="18" y="22" width="24" height="24" rx="2" fill="url(#diceBase)" stroke="#24180C" stroke-width="2.5"/>
+
+    <!-- Top face (3D effect) -->
+    <polygon points="18,22 24,16 48,16 42,22" fill="url(#diceBase)" stroke="#24180C" stroke-width="2.5" stroke-linejoin="round" opacity="0.9"/>
+
+    <!-- Right face (3D effect) -->
+    <polygon points="42,22 48,16 48,40 42,46" fill="url(#diceBase)" stroke="#24180C" stroke-width="2.5" stroke-linejoin="round" opacity="0.8"/>
+
+    <!-- Dots on front face (5 pattern) -->
+    <!-- Top-left -->
+    <circle cx="24" cy="28" r="1.8" fill="#2B1C0D" opacity="0.7"/>
+    <!-- Top-right -->
+    <circle cx="36" cy="28" r="1.8" fill="#2B1C0D" opacity="0.7"/>
+    <!-- Center -->
+    <circle cx="30" cy="34" r="1.8" fill="#2B1C0D" opacity="0.7"/>
+    <!-- Bottom-left -->
+    <circle cx="24" cy="40" r="1.8" fill="#2B1C0D" opacity="0.7"/>
+    <!-- Bottom-right -->
+    <circle cx="36" cy="40" r="1.8" fill="#2B1C0D" opacity="0.7"/>
+
+    <!-- Dots on top face (2 pattern) -->
+    <circle cx="28" cy="18" r="1.4" fill="#2B1C0D" opacity="0.6"/>
+    <circle cx="40" cy="18" r="1.4" fill="#2B1C0D" opacity="0.6"/>
+
+    <!-- Dots on right face (3 pattern) -->
+    <circle cx="45" cy="24" r="1.4" fill="#2B1C0D" opacity="0.5"/>
+    <circle cx="45" cy="34" r="1.4" fill="#2B1C0D" opacity="0.5"/>
+    <circle cx="45" cy="44" r="1.4" fill="#2B1C0D" opacity="0.5"/>
+
+    <!-- Glow overlay -->
+    <g opacity="0.35">
+      <rect x="10" y="14" width="44" height="44" fill="url(#diceGlow)"/>
+    </g>
+  </g>
+</svg>

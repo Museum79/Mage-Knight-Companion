@@ -1,0 +1,418 @@
+ARTEFACT
+
+1/16
+Banner of Glory
+Assign this to a unit you control.
+The assigned unit gets armor +1 and +1 to any attacks or blocks it makes. Whenever this unit attacks or blocks, fame +1
+----
+Units you control get armor +1 and +1 to any attacks or blocks the make this turn.
+Fame +1 for each unit that attacks or blocks this turn.
+
+**********
+
+2/16
+Banner of Fear
+Assign this to a unit you control.
+During the block phase of combat, you may spend this Unit to cancel one enemy attack. If you do, Fame +1.
+----
+Up to 3 enemies do not attack this combat.
+
+**********
+
+3/16
+Banner of Protection
+Assign this to a unit you control.
+The assigned unit gets armor +1, fire resistance and ice resistance.
+----
+At the end of your turn, you may throw away all wounds you received this turn.
+
+**********
+
+4/16
+Banner of Courage
+Assign this to a unit you control.
+Once a round, except during combat, you may flip this card face down to ready this unit. At the beginning of a round, flip it face up again.
+----
+You may play this any time other than combat to ready all units you control.
+
+**********
+
+5/16
+Ruby Ring
+Gain a red mana token and a red crystal to your Inventory.
+Fame +1
+----
+You have an endless supply of red and black mana this turn.
+Fame +1 for each red Spell you cast this turn.
+
+**********
+
+6/16
+Sapphire Ring
+Gain a blue mana token and a blue crystal to your Inventory.
+Fame +1
+----
+You have an endless supply of blue and black mana this turn.
+Fame +1 for each blue Spell you cast this turn.
+
+**********
+
+7/16
+Diamond Ring
+Gain a white mana token and a white crystal to your Inventory.
+Fame +1
+----
+You have an endless supply of white and black mana this turn.
+Fame +1 for each white Spell you cast this turn.
+
+***********
+
+8/16
+Emerald Ring
+Gain a green mana token and a green crystal to your Inventory.
+Fame +1
+----
+You have an endless supply of green and black mana this turn.
+Fame +1 for each green Spell you cast this turn.
+
+************
+
+9/16
+Sword of Justice
+When you play this, discard any number of cards from your hand.
+You get Attack 3 for each card you discard this way. Fame +1 for each enemy you defeat this turn.
+----
+Double the contribution of all physical attacks you play during your Attack phase this turn.
+Enemies lose physical resistance this turn. Fame +1 for each enemy you defeat this turn.
+
+*************
+
+10/16
+Horn of Wrath
+Siege Attack 5.
+Roll a mana die. If you roll black or red, you get a Wound.
+----
+Siege Attack 5.
+You may add up to +5 to this Siege Attack. For each +1 you added roll a mana die. You get a Wound for each black or red rolled.
+
+**************
+
+11/16
+Golden Grail
+Heal 2.
+Fame +1 for each point of Healing provided by this card you spend this turn.
+----
+Heal 6.
+Every time you Heal a Wound from hand this turn, draw a card.
+
+*************
+
+12/16
+Endless Bag of Gold
+Influence 4, Fame +2.
+----
+Influence 9, Fame +3.
+
+*************
+
+13/16
+Endless Gem Pouch
+Roll a mana die two times.
+Gain a crystal to your Inventory for each color rolled this way (if you roll gold, you choose the color). If you roll black, Fame +1 instead of a crystal.
+----
+Gain a mana token of each basic color.
+Also get one gold (if played at day) or black (if played at night) mana token.
+
+**************
+
+14/16
+Book of Wisdom
+Throw away an Action card from your hand. Gain an Advanced Action card from
+the Advanced Actions offer to your hand that is the same color as the Action you threw away.
+----
+Throw away an Action card from your hand. Gain a Spell from the Spells offer to your hand that
+is the same color as the Action you threw away and a Crystal of that color to your Inventory.
+
+***************
+
+15/16
+Amulet of the Sun
+Gain a gold mana token.
+If played during the Night, forests have their move cost reduced to 3, you can use gold mana,
+and you reveal garrisons of nearby fortified sites and all ruins as if it were day.
+----
+Same as the basic effect, except you get three gold mana tokens instead of one.
+
+***************
+
+16/16
+Amulet of Darkness
+Gain a mana token of any color.
+If played during the Day, deserts have their move cost reduced to 3 and you can use black mana as if it were Night.
+----
+Same as the basic effect, except you get three mana tokens of any colors instead of one.
+
+***************
+
+
+SPELLS (cartes violettes)
+1/20
+Fireball
+cout: 1 mana rouge
+Ranged Fire Attack 5.
+----
+Firestorm
+cout: 1 mana rouge et 1 noir
+Take a Wound. Siege Fire Attack 8.
+
+**************
+
+2/20
+Snowstorm
+cout: 1 mana bleu
+Ranged Ice Attack 5
+----
+Blizzard
+cout: 1 mana bleu & 1 noir
+Take a Wound. Siege Ice Attack 8.
+
+**************
+
+3/20
+Expose
+cout: 1 mana blanc
+Target enemy loses all fortifications and resistances this combat. Ranged Attack 2.
+----
+Mass Expose
+cout: un mana blanc & un mana noir
+Enemies lose all fortifications this combat, or enemies lose all resistances this combat. Ranged Attack 3.
+
+**************
+
+4/20
+Tremor
+Cout : 1 mana vert
+Target enemy gets Armor -3, or all enemies get Armor -2. Armor cannot be reduced below 1.
+----
+Earthquake
+Cout : 1 mana vert & 1 mana noir
+Target enemy gets Armor -3 (Armor -6 if it is fortified), or all enemies get Armor -2 (Armor -4 if they are fortified). Armor cannot be reduced below 1.
+
+**************
+
+5/20
+Flame Wall
+cout : 1 mana rouge
+Fire Attack 5 or Fire Block 7
+-----
+Flame Wave
+cout : 1 mana rouge & 1 noir
+Fire Attack 5 or Fire Block 7. This attack or block gets increased by 2 for each enemy token you are facing.
+
+***************
+
+6/20
+Mana Bolt
+cout : 1 mana bleu
+When you play this, pay a mana. If you paid blue, Ice Attack 8. If you paid red, Cold Fire Attack 7.
+If you paid white, Ranged Ice Attack 6. If you paid green, Siege Ice Attack 5.
+----
+Mana Thunderbolt
+cout : 1 mana bleu & 1 mana noir
+When you play this, pay a mana. If you paid blue, Ice Attack 11. If you paid red, Cold Fire Attack 10.
+If you paid white, Ranged Ice Attack 9. If you paid green, Siege Ice Attack 8.
+
+************
+
+7/20
+Whirlwind
+cout : 1 mana blanc
+Target enemy does not attack this combat.
+----
+Tornado
+cout : 1 mana blanc & 1 mana noir
+Play this only in the Attack phase of combat. Destroy target enemy.
+
+************
+
+8/20
+Underground Travel
+cout : 1 mana vert
+Move by up to 3 revealed spaces on the map. You may not move to or through swamps or lakes this way,
+and you must end your move on a safe space. Moving this way does not provoke rampaging enemies
+-----
+Underground Attack
+cout : 1 mana vert & 1 noir
+Same as the basic effect, except you have to end your move on a fortified site (or on a space occupied
+by another player). It ends your movement and counts as an assault (or as an attack on that player).
+Ignore site fortifications. If withdrawing after the combat, return to your original position.
+
+*******************
+
+9/20
+Burning Shield
+cout : 1 mana rouge
+Fire Block 4. If this card is used as part of a successful Block,
+you may use it during your Attack phase as Fire Attack 4.
+----
+Exploding Shield
+cout : 1 mana rouge et 1 noir
+Fire Block 4. If this card is used as part of a successful Block,
+destroy the blocked enemy.
+
+*************
+
+10/20
+Chill
+cout : 1 mana bleu
+Target enemy does not attack this combat. If it has Fire Resistance, it loses it for the rest of the turn.
+----
+Lethal Chill
+cout 1 mana bleu & 1 noir
+Target enemy does not attack this combat and gets Armor -4 (to a minimum of 1) for the rest of the turn.
+
+************
+
+11/20
+Wings of Wind
+cout : 1 mana blanc
+When you play this, spend 1-5 Move points and move one revealed space on the map for each.
+You must end your move in a safe space. Moving this way does not provoke rampaging enemies.
+----
+Wings of Night
+cout : 1 mana blanc & 1 noir
+Target enemy does not attack this combat. You may target additional enemies:
+pay 1 Move point for the second enemy, 2 Move points for the third enemy, etc.
+
+***********
+
+12/20
+
+Restoration
+cout : 1 mana vert
+Heal 3. If you are in a forest, Heal 5 instead.
+----
+Rebirth
+cout : 1 mana vert & 1 mana noir
+Heal 3. If you are in a forest, Heal 5 instead. Ready up to 3 levels worth of Units. If you are in a forest, Ready up to 5 levels of Units instead.
+
+*************
+
+13/20
+
+Demolish
+cout : 1 mana rouge
+Ignore site fortifications this turn. Enemies get Armor -1 (to a minimum of 1).
+----
+Disintegrate
+cout : 1 mana rouge & 1 mana noir
+Play this only in the Attack phase of combat. Destroy target enemy. Other enemies get Armor -1 (to a minimum of 1).
+
+*************
+
+14/20
+
+Space Bending
+cout. : 1 mana bleu
+This turn, you may move to spaces and explore new tiles that are 2 spaces away from you as if they were adjacent.
+Ignore any spaces you leap over this way. Your movement does not provoke rampaging enemies this turn.
+----
+Time Bending
+cout : 1 mana bleu & 1 noir
+At the end of your turn, set this card aside for the rest of the Round. Put all other cards you played this
+turn (not those discarded or thrown away) back in your hand. Skip the "draw new cards" portion of your end of turn step. Immediately take another turn.
+
+**************
+
+15/20
+
+Call to Arms
+cout : 1 mana blanc
+You may use an ability of one Unit in the Units offer this turn, as if it were one of your recruits.
+You cannot assign damage to this Unit.
+----
+Call to Glory
+ccout : 1 mana blanc & 1 noir
+Recruit any one Unit from the Units offer for free. (If you are at your Command limit,
+you must disband one of your Units first.)
+
+**************
+
+16/20
+
+Meditation
+cout : 1 mana vert
+Randomly pick two cards from your discard pile and place them either on the top or bottom of your Deed deck.
+At the end of this turn, draw two cards over your hand limit.
+----
+Trance
+cout : 1 mana vert & 1 noir
+Same as the basic effect, except you choose the cards instead of picking them randomly
+
+************
+
+17/20
+
+Mana Meltdown
+cout : 1 mana rouge
+Each other player must randomly choose a crystal in their Inventory to be lost.
+You may gain one crystal lost this way to your Inventory. Any player that had no crystal in their Inventory when you played this, takes a Wound instead.
+----
+Mana Radiance
+cout : 1 mana rouge & 1 mana noir
+When you play this, choose a basic mana color. Each player, including you, takes a Wound for each crystal of that color they own.
+Gain two crystal of the chosen color to your Inventory
+
+************
+
+18/20
+
+Mana Claim
+cout : 1 mana bleu
+Take a mana die of a basic color from the Source and keep it in your Play area until the end of the Round.
+You can either gain 3 mana tokens of that color this turn, or one mana token of that color each turn for the remainder of the Round (starting with your next turn).
+----
+Mana Curse
+cout : 1 mana bleu & 1 mana noir
+Same as the basic effect. In addition, until the end of the Round: Each time another player uses one or
+more mana of that color on their turn (from any source), they take a Wound. Each player can get only one Wound per turn this way.
+
+*************
+
+19/20
+
+Mind Read
+cout : 1 mana blanc
+Choose a color. Gain a crystal of the chosen color to your Inventory. Each other player must discard a
+Spell or Action card of that color from their hand, or reveal their hand to show that they have none.
+----
+Mind Steal
+cout : 1 mana blanc & 1 mana noir
+Same as the basic effect. In addition to that , you may decide to permanently steal one of the Action
+cards (not Spells) discarded this way and put it into your hand.
+
+*************
+
+20/20
+
+Energy Flow
+cout : 1 mana vert
+Ready a Unit. If you do, you may spend one Unit of level II or less in each other player's Unit area.
+----
+Energy Steal
+cout : 1 mana vert & 1 mana noir
+Ready a Unit. If you do, that Unit also gets Healed, and you may spend one unit of level III or less in each other player's Unit area.
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,58 @@
+export const SCENARIOS = [
+  {
+    id: 'reconnaissance',
+    name: 'Première Reconnaissance',
+    players: '2–4',
+    duration: '3 rounds',
+    description: 'Scénario d\'entraînement idéal pour apprendre les règles à votre rythme.',
+  },
+  {
+    id: 'conquest_eclair',
+    name: 'Conquête Éclair',
+    players: '2–4',
+    duration: '4 rounds',
+    description: 'Une version plus rapide de la conquête standard pour une partie dynamique.',
+  },
+  {
+    id: 'conquest_standard',
+    name: 'Conquête (Standard)',
+    players: '2–4',
+    duration: '6 rounds',
+    description: 'Le scénario compétitif classique. Conquérez les cités et gagnez de la renommée.',
+  },
+  {
+    id: 'cooperation_std',
+    name: 'Coopération (Standard)',
+    players: '2–3',
+    duration: '6 rounds',
+    description: 'Unissez vos forces pour conquérir toutes les cités ensemble.',
+  },
+  {
+    id: 'solitary_conquest',
+    name: 'Conquête en Solitaire',
+    players: '1',
+    duration: '6 rounds',
+    description: 'Pour un Mage Knight solitaire. Un défi personnel contre le royame.',
+  },
+  {
+    id: 'cooperation_eclair',
+    name: 'Coopération Éclair',
+    players: '2–4',
+    duration: '4 rounds',
+    description: 'Coopération rapide et intense. Plus facile, plus rapide que le standard.',
+  },
+  {
+    id: 'mine_liberation',
+    name: 'Libération des Mines',
+    players: '2–4',
+    duration: '4 rounds',
+    description: 'Libérez les mines et récupérez les cristaux pour le royaume.',
+  },
+  {
+    id: 'druid_nights',
+    name: 'Les Nuits des Druides',
+    players: '2–4',
+    duration: '4 rounds',
+    description: 'Explorez les obélisques mystérieux des clairières magiques du royaume.',
+  },
+]

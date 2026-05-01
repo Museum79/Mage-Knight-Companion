@@ -1,0 +1,57 @@
+<svg viewBox="16 12 32 42" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="placeBase" x1="12" y1="10" x2="52" y2="52" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#FFF7E2"/>
+      <stop offset="0.3" stop-color="#E7CA86"/>
+      <stop offset="0.66" stop-color="#BC8C45"/>
+      <stop offset="1" stop-color="#68461F"/>
+    </linearGradient>
+    <radialGradient id="placeGlow" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(26 18) rotate(42) scale(24 20)">
+      <stop offset="0" stop-color="#FFF9ED" stop-opacity="0.88"/>
+      <stop offset="0.55" stop-color="#F3DDA8" stop-opacity="0.36"/>
+      <stop offset="1" stop-color="#F3DDA8" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="placeShadow" x="4" y="4" width="56" height="56" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feDropShadow dx="0" dy="2" stdDeviation="2" flood-color="#000000" flood-opacity="0.45"/>
+    </filter>
+    <filter id="placeTexture" x="0" y="0" width="64" height="64" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feTurbulence type="fractalNoise" baseFrequency="0.91" numOctaves="2" seed="31" result="noise"/>
+      <feColorMatrix
+        in="noise"
+        type="matrix"
+        values="0 0 0 0 0.96
+                0 0 0 0 0.84
+                0 0 0 0 0.58
+                0 0 0 0.13 0"
+        result="grain"
+      />
+    </filter>
+    <clipPath id="placeClip">
+      <path d="M18 52 L18 14 L24 14 L24 22 L28 22 L28 14 L36 14 L36 22 L40 22 L40 14 L46 14 L46 52 Z"/>
+    </clipPath>
+  </defs>
+
+  <g filter="url(#placeShadow)">
+    <!-- Tour avec créneaux -->
+    <path
+      d="M18 52 L18 14 L24 14 L24 22 L28 22 L28 14 L36 14 L36 22 L40 22 L40 14 L46 14 L46 52 Z"
+      fill="url(#placeBase)"
+      stroke="#24180C"
+      stroke-width="3.2"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+    />
+    <!-- Ombres latérales pour la profondeur -->
+    <path d="M18 52 L18 14 L24 14 L24 22 L28 22 L28 14 L30 14 L30 52 Z" fill="#140E08" opacity="0.13"/>
+    <path d="M34 14 L36 14 L36 22 L40 22 L40 14 L46 14 L46 52 L34 52 Z" fill="#140E08" opacity="0.18"/>
+    <!-- Portail en arc (ouverture sombre) -->
+    <path d="M26 52 L26 41 A 6 6 0 0 0 38 41 L38 52 Z" fill="#1A1008"/>
+    <!-- Fenêtre gothique -->
+    <path d="M29.5 30 L29.5 26 A 2.5 2.5 0 0 0 34.5 26 L34.5 30 Z" fill="#1A1008"/>
+    <!-- Reflet lumineux + texture -->
+    <g clip-path="url(#placeClip)" opacity="0.62">
+      <rect x="0" y="0" width="64" height="64" fill="url(#placeGlow)"/>
+      <rect x="0" y="0" width="64" height="64" filter="url(#placeTexture)"/>
+    </g>
+  </g>
+</svg>

@@ -1,0 +1,15 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(brew install *)",
+      "Bash(pdftotext /Users/sylvain/Documents/Workspace/mage-knight-companion/src/data/mage_knight_BG_-_livret_2.pdf -)",
+      "Bash(python3 -c \"import pdfplumber; print\\('ok'\\)\")",
+      "Bash(python3 -c \"import PyPDF2; print\\('ok'\\)\")",
+      "Bash(python3 -c \"import fitz; print\\('ok'\\)\")",
+      "Read(//opt/homebrew/bin/**)",
+      "Bash(brew list *)",
+      "Read(//opt/homebrew/Cellar/poppler/**)",
+      "Bash(/opt/homebrew/Cellar/poppler/*/bin/pdftotext --version)"
+    ]
+  }
+}

@@ -1,0 +1,61 @@
+<svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bookBase" x1="10" y1="12" x2="53" y2="50" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#FFF7E1"/>
+      <stop offset="0.3" stop-color="#E8CB87"/>
+      <stop offset="0.66" stop-color="#BC8C45"/>
+      <stop offset="1" stop-color="#67461F"/>
+    </linearGradient>
+    <radialGradient id="bookGlow" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(24 19) rotate(42) scale(24 20)">
+      <stop offset="0" stop-color="#FFF9ED" stop-opacity="0.86"/>
+      <stop offset="0.55" stop-color="#F4DEAA" stop-opacity="0.36"/>
+      <stop offset="1" stop-color="#F4DEAA" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="bookShadow" x="4" y="8" width="56" height="48" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feDropShadow dx="0" dy="2" stdDeviation="2" flood-color="#000000" flood-opacity="0.45"/>
+    </filter>
+    <filter id="bookTexture" x="0" y="0" width="64" height="64" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" seed="17" result="noise"/>
+      <feColorMatrix
+        in="noise"
+        type="matrix"
+        values="0 0 0 0 0.96
+                0 0 0 0 0.83
+                0 0 0 0 0.57
+                0 0 0 0.13 0"
+        result="grain"
+      />
+    </filter>
+    <clipPath id="bookClip">
+      <path d="M8 12 H28 C32 12 32 20 32 20 V52 C32 52 32 44 28 44 H8 Z"/>
+      <path d="M56 12 H36 C32 12 32 20 32 20 V52 C32 52 32 44 36 44 H56 Z"/>
+    </clipPath>
+  </defs>
+
+  <g filter="url(#bookShadow)">
+    <path
+      d="M8 12 H28 C32 12 32 20 32 20 V52 C32 52 32 44 28 44 H8 Z"
+      fill="url(#bookBase)"
+      stroke="#24180C"
+      stroke-width="3.4"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+    />
+    <path
+      d="M56 12 H36 C32 12 32 20 32 20 V52 C32 52 32 44 36 44 H56 Z"
+      fill="url(#bookBase)"
+      stroke="#24180C"
+      stroke-width="3.4"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+    />
+    <path d="M32 20V46.8" stroke="#20150B" stroke-width="3.3" stroke-linecap="round"/>
+    <path d="M31.1 20V45.5" stroke="#F7E4BD" stroke-width="1.1" stroke-linecap="round" opacity="0.75"/>
+    <path d="M12 17H26.6C29.6 17 30.8 18.8 32 20.3V44.4C30.8 43.3 29.3 42.6 27.2 42.6H12V17Z" fill="#140E08" opacity="0.13"/>
+    <path d="M52 17H37.4C34.4 17 33.2 18.8 32 20.3V44.4C33.2 43.3 34.7 42.6 36.8 42.6H52V17Z" fill="#140E08" opacity="0.17"/>
+    <g clip-path="url(#bookClip)" opacity="0.62">
+      <rect x="0" y="0" width="64" height="64" fill="url(#bookGlow)"/>
+      <rect x="0" y="0" width="64" height="64" filter="url(#bookTexture)"/>
+    </g>
+  </g>
+</svg>

@@ -1,0 +1,49 @@
+<svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="cardsBase" x1="12" y1="12" x2="52" y2="52" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#FFF7E2"/>
+      <stop offset="0.3" stop-color="#E7CA86"/>
+      <stop offset="0.66" stop-color="#BC8C45"/>
+      <stop offset="1" stop-color="#68461F"/>
+    </linearGradient>
+    <radialGradient id="cardsGlow" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(24 19) rotate(42) scale(25 20)">
+      <stop offset="0" stop-color="#FFF9ED" stop-opacity="0.88"/>
+      <stop offset="0.55" stop-color="#F3DDA8" stop-opacity="0.36"/>
+      <stop offset="1" stop-color="#F3DDA8" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="cardsShadow" x="4" y="6" width="56" height="52" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feDropShadow dx="0" dy="2" stdDeviation="2" flood-color="#000000" flood-opacity="0.45"/>
+    </filter>
+    <filter id="cardsTexture" x="0" y="0" width="64" height="64" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feTurbulence type="fractalNoise" baseFrequency="0.92" numOctaves="2" seed="23" result="noise"/>
+      <feColorMatrix
+        in="noise"
+        type="matrix"
+        values="0 0 0 0 0.96
+                0 0 0 0 0.84
+                0 0 0 0 0.58
+                0 0 0 0.13 0"
+        result="grain"
+      />
+    </filter>
+    <clipPath id="cardsClip">
+      <rect x="10" y="16" width="28" height="36" rx="4"/>
+      <rect x="18" y="12" width="28" height="36" rx="4"/>
+      <rect x="26" y="16" width="28" height="36" rx="4"/>
+    </clipPath>
+  </defs>
+
+  <g filter="url(#cardsShadow)">
+    <rect x="10" y="16" width="28" height="36" rx="4" fill="url(#cardsBase)" stroke="#24180C" stroke-width="3.1"/>
+    <rect x="18" y="12" width="28" height="36" rx="4" fill="url(#cardsBase)" stroke="#24180C" stroke-width="3.1"/>
+    <rect x="26" y="16" width="28" height="36" rx="4" fill="url(#cardsBase)" stroke="#24180C" stroke-width="3.1"/>
+    <rect x="13" y="19" width="22" height="30" rx="2.2" fill="#140E08" opacity="0.08"/>
+    <rect x="21" y="15" width="22" height="30" rx="2.2" fill="#140E08" opacity="0.12"/>
+    <rect x="29" y="19" width="22" height="30" rx="2.2" fill="#140E08" opacity="0.16"/>
+    <circle cx="41.5" cy="34" r="1.8" fill="#2B1C0D" opacity="0.48"/>
+    <g clip-path="url(#cardsClip)" opacity="0.62">
+      <rect x="0" y="0" width="64" height="64" fill="url(#cardsGlow)"/>
+      <rect x="0" y="0" width="64" height="64" filter="url(#cardsTexture)"/>
+    </g>
+  </g>
+</svg>

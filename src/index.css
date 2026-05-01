@@ -1,0 +1,420 @@
+@import "tailwindcss";
+
+@theme {
+  /* Gothic fantasy fonts */
+  --font-display:     'Cinzel', Georgia, serif;
+  --font-decorative:  'Cinzel Decorative', Georgia, serif;
+
+  /* Dark warm charcoal/sepia — matches the mockup's obsidian-brown UI */
+  --color-slate-950: #0c0a07;
+  --color-slate-900: #18140d;
+  --color-slate-800: #241c12;
+  --color-slate-700: #38291a;
+  --color-slate-600: #5c4228;
+  --color-slate-500: #8a6440;
+  --color-slate-400: #b28a5a;
+  --color-slate-300: #d0aa78;
+  --color-slate-200: #e4c898;
+  --color-slate-100: #f0deb8;
+
+  /* Gold — the main accent across the app */
+  --color-gold-200: #f5e8a0;
+  --color-gold-300: #e8cc60;
+  --color-gold-400: #c8a028;
+  --color-gold-500: #a07818;
+  --color-gold-600: #7a5c10;
+
+  /* Parchment cards */
+  --color-parchment-50:   #faf5e8;
+  --color-parchment-100:  #f5ead0;
+  --color-parchment-200:  #e8d5a0;
+  --color-parchment-300:  #d4bc78;
+  --color-parchment-dark: #2a1e08;
+
+  /* ─────────────────────────────────────────────────────── */
+  /* Semantic Design Tokens — aliases of base scales above */
+  /* ─────────────────────────────────────────────────────── */
+
+  /* Surfaces */
+  --color-surface-base:   var(--color-slate-950);   /* #0c0a07 — page background */
+  --color-surface-raised: var(--color-slate-900);   /* #18140d — panel background */
+  --color-surface-panel:  var(--color-slate-800);   /* #241c12 — card/control bg */
+
+  /* Text */
+  --color-text-primary:   var(--color-parchment-100); /* #f5ead0 — headings, names */
+  --color-text-secondary: var(--color-slate-300);     /* #d0aa78 — subtitles, muted */
+  --color-text-muted:     var(--color-slate-500);     /* #8a6440 — disabled, hints */
+
+  /* Borders */
+  --color-border-subtle:  var(--color-slate-700);     /* #38291a — panel borders */
+  --color-border-control: var(--color-slate-600);     /* #5c4228 — inputs, buttons */
+
+  /* Accent */
+  --color-accent:         var(--color-gold-400);      /* #c8a028 — primary CTA */
+  --color-accent-text:    var(--color-gold-300);      /* #e8cc60 — links, active labels */
+  --color-accent-muted:   var(--color-gold-600);      /* #7a5c10 — subtle accents */
+}
+
+html, body, #root {
+  height: 100%;
+  background-color: #0c0a07;
+  font-family: system-ui, -apple-system, sans-serif;
+}
+
+#root { display: flex; flex-direction: column; }
+
+/* iOS safe areas */
+.pb-safe { padding-bottom: max(0.75rem, env(safe-area-inset-bottom)); }
+.pt-safe  { padding-top:    max(0px,    env(safe-area-inset-top)); }
+
+/* Silver metallic gradient for the main logo */
+.logo-metallic {
+  background: linear-gradient(180deg,
+    #f3eee4 0%,
+    #d2c8bb 18%,
+    #a29685 38%,
+    #64594d 58%,
+    #e6ddd0 76%,
+    #887a6b 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  filter:
+    drop-shadow(0 1px 0 rgba(255, 255, 255, 0.2))
+    drop-shadow(0 2px 3px rgba(22, 18, 14, 0.6))
+    drop-shadow(0 5px 12px rgba(0, 0, 0, 0.74));
+}
+
+.logo-metallic-subtle {
+  background: linear-gradient(180deg,
+    #eee7db 0%,
+    #c7bbab 18%,
+    #988a7a 40%,
+    #5f554a 64%,
+    #ddd3c4 82%,
+    #827464 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  filter:
+    drop-shadow(0 1px 0 rgba(255, 255, 255, 0.16))
+    drop-shadow(0 1px 2px rgba(18, 14, 10, 0.58))
+    drop-shadow(0 3px 8px rgba(0, 0, 0, 0.6));
+}
+
+/* Parchment card texture */
+.parchment {
+  background-color: var(--color-parchment-200);
+  color: var(--color-parchment-dark);
+  background-image:
+    radial-gradient(ellipse at 20% 10%, rgba(200,180,120,0.4) 0%, transparent 60%),
+    radial-gradient(ellipse at 80% 90%, rgba(160,130,70,0.3) 0%, transparent 60%);
+}
+
+/* Decorative divider */
+.divider {
+  height: 1px;
+  background: linear-gradient(to right, transparent, #38291a, transparent);
+}
+
+.mk-page-bg {
+  background:
+    radial-gradient(circle at top center, rgba(164, 119, 54, 0.16) 0%, rgba(164, 119, 54, 0.05) 22%, transparent 46%),
+    linear-gradient(180deg, #120f0b 0%, #090807 100%);
+}
+
+.mk-panel {
+  background: linear-gradient(135deg, rgba(22, 20, 17, 0.94) 0%, rgba(11, 11, 10, 0.9) 100%);
+  border: 1px solid rgba(116, 95, 63, 0.2);
+  box-shadow:
+    inset 0 0 0 1px rgba(255, 236, 204, 0.05),
+    0 10px 24px rgba(0, 0, 0, 0.35);
+}
+
+.mk-panel-soft {
+  background: linear-gradient(180deg, rgba(20, 18, 16, 0.96) 0%, rgba(10, 9, 8, 0.96) 100%);
+  border: 1px solid rgba(116, 95, 63, 0.18);
+  box-shadow: inset 0 0 0 1px rgba(255, 236, 204, 0.04);
+}
+
+.mk-control {
+  background: linear-gradient(180deg, rgba(28, 25, 21, 0.96) 0%, rgba(15, 13, 11, 0.94) 100%);
+  border: 1px solid rgba(126, 104, 69, 0.28);
+  box-shadow: inset 0 0 0 1px rgba(255, 236, 204, 0.04);
+  color: #eadbbd;
+}
+
+.mk-control:hover {
+  border-color: rgba(168, 136, 89, 0.38);
+}
+
+.mk-control:disabled {
+  opacity: 0.35;
+}
+
+.mk-control-accent {
+  background: linear-gradient(180deg, rgba(214, 179, 106, 0.96) 0%, rgba(160, 116, 47, 0.96) 100%);
+  border: 1px solid rgba(255, 237, 198, 0.22);
+  box-shadow:
+    inset 0 0 0 1px rgba(255, 244, 220, 0.14),
+    0 8px 18px rgba(0, 0, 0, 0.28);
+  color: #120d08;
+}
+
+.mk-input {
+  background: linear-gradient(180deg, rgba(20, 18, 16, 0.98) 0%, rgba(11, 10, 9, 0.96) 100%);
+  border: 1px solid rgba(126, 104, 69, 0.28);
+  color: #f1e4c8;
+  box-shadow: inset 0 0 0 1px rgba(255, 236, 204, 0.04);
+}
+
+.mk-input::placeholder {
+  color: rgba(176, 153, 118, 0.55);
+}
+
+.mk-input:focus {
+  outline: none;
+  border-color: rgba(214, 179, 106, 0.6);
+  box-shadow:
+    inset 0 0 0 1px rgba(255, 236, 204, 0.05),
+    0 0 0 2px rgba(214, 179, 106, 0.12);
+}
+
+/* Slim scrollbar */
+::-webkit-scrollbar { width: 3px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: #38291a; border-radius: 2px; }
+
+/* ─────────────────────────────────────────────────────── */
+/* Metallic Gradients for Artifact Cards */
+/* ─────────────────────────────────────────────────────── */
+
+/* Red/Fire Metal */
+.bg-metal-red {
+  background: linear-gradient(135deg,
+    rgba(255, 150, 140, 0.6) 0%,
+    rgba(248, 113, 113, 0.8) 35%,
+    rgba(180, 50, 40, 0.9) 65%,
+    rgba(90, 20, 15, 0.95) 100%
+  );
+  box-shadow:
+    inset 0 1px 3px rgba(255, 200, 190, 0.4),
+    inset 0 -2px 4px rgba(0, 0, 0, 0.6),
+    0 4px 16px rgba(248, 113, 113, 0.3);
+}
+
+/* Blue/Ice Metal */
+.bg-metal-blue {
+  background: linear-gradient(135deg,
+    rgba(180, 220, 255, 0.6) 0%,
+    rgba(147, 197, 253, 0.8) 35%,
+    rgba(60, 130, 200, 0.9) 65%,
+    rgba(30, 60, 120, 0.95) 100%
+  );
+  box-shadow:
+    inset 0 1px 3px rgba(200, 240, 255, 0.4),
+    inset 0 -2px 4px rgba(0, 0, 0, 0.6),
+    0 4px 16px rgba(147, 197, 253, 0.3);
+}
+
+/* Green/Nature Metal */
+.bg-metal-green {
+  background: linear-gradient(135deg,
+    rgba(180, 255, 160, 0.6) 0%,
+    rgba(134, 239, 172, 0.8) 35%,
+    rgba(60, 160, 90, 0.9) 65%,
+    rgba(20, 80, 40, 0.95) 100%
+  );
+  box-shadow:
+    inset 0 1px 3px rgba(210, 255, 190, 0.4),
+    inset 0 -2px 4px rgba(0, 0, 0, 0.6),
+    0 4px 16px rgba(134, 239, 172, 0.3);
+}
+
+/* Purple/Magic Metal */
+.bg-metal-purple {
+  background: linear-gradient(135deg,
+    rgba(220, 190, 255, 0.6) 0%,
+    rgba(196, 181, 253, 0.8) 35%,
+    rgba(120, 80, 200, 0.9) 65%,
+    rgba(60, 30, 110, 0.95) 100%
+  );
+  box-shadow:
+    inset 0 1px 3px rgba(240, 220, 255, 0.4),
+    inset 0 -2px 4px rgba(0, 0, 0, 0.6),
+    0 4px 16px rgba(196, 181, 253, 0.3);
+}
+
+/* White/Neutral Metal */
+.bg-metal-white {
+  background: linear-gradient(135deg,
+    rgba(240, 240, 230, 0.6) 0%,
+    rgba(226, 213, 181, 0.8) 35%,
+    rgba(150, 130, 100, 0.9) 65%,
+    rgba(70, 60, 40, 0.95) 100%
+  );
+  box-shadow:
+    inset 0 1px 3px rgba(255, 255, 245, 0.4),
+    inset 0 -2px 4px rgba(0, 0, 0, 0.6),
+    0 4px 16px rgba(226, 213, 181, 0.3);
+}
+
+/* Gold/Treasure Metal */
+.bg-metal-gold {
+  background: linear-gradient(135deg,
+    rgba(255, 230, 130, 0.6) 0%,
+    rgba(251, 191, 36, 0.8) 35%,
+    rgba(200, 140, 20, 0.9) 65%,
+    rgba(100, 70, 10, 0.95) 100%
+  );
+  box-shadow:
+    inset 0 1px 3px rgba(255, 245, 180, 0.4),
+    inset 0 -2px 4px rgba(0, 0, 0, 0.6),
+    0 4px 16px rgba(251, 191, 36, 0.3);
+}
+
+/* ─────────────────────────────────────────────────────── */
+/* Chat & Oracle Animations */
+/* ─────────────────────────────────────────────────────── */
+
+/* Entrée des messages */
+@keyframes mk-message-enter {
+  from { opacity: 0; transform: translateY(8px); filter: blur(3px); }
+  to { opacity: 1; transform: translateY(0); filter: blur(0); }
+}
+.mk-message-enter {
+  animation: mk-message-enter 0.45s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+}
+
+/* Sweep doré sur les bulles de l'Oracle (une seule fois à l'apparition) */
+@keyframes mk-bubble-sweep {
+  0% { transform: translateX(-100%); opacity: 0; }
+  20% { opacity: 1; }
+  80% { opacity: 1; }
+  100% { transform: translateX(100%); opacity: 0; }
+}
+.mk-bubble-sweep {
+  animation: mk-bubble-sweep 1.8s ease-out 0.25s 1 both;
+}
+
+/* Runes pulsantes pendant le chargement */
+@keyframes mk-rune-pulse {
+  0%, 100% { opacity: 0.3; transform: scale(0.9); }
+  50% { opacity: 1; transform: scale(1.2); text-shadow: 0 0 8px rgba(200,160,40,0.7); }
+}
+.mk-rune {
+  animation: mk-rune-pulse 1.4s ease-in-out infinite;
+}
+
+/* Shimmer bulle de chargement */
+@keyframes mk-loading-shimmer {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+.mk-loading-shimmer {
+  animation: mk-loading-shimmer 2.5s ease-in-out infinite;
+}
+
+/* Emblème qui respire */
+@keyframes mk-emblem-breathe {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.03); }
+}
+.mk-emblem-breathe {
+  animation: mk-emblem-breathe 3.5s ease-in-out infinite;
+}
+
+@keyframes mk-emblem-aura {
+  0%, 100% { opacity: 0.22; transform: scale(1); }
+  50% { opacity: 0.4; transform: scale(1.08); }
+}
+.mk-emblem-aura {
+  animation: mk-emblem-aura 3.5s ease-in-out infinite;
+}
+
+@keyframes mk-emblem-rotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+.mk-emblem-ring-rotate {
+  animation: mk-emblem-rotate 32s linear infinite reverse;
+}
+
+/* Sparkles flottants */
+@keyframes mk-sparkle-float {
+  0%, 100% { opacity: 0; transform: translateY(0) scale(0.8); }
+  50% { opacity: 0.85; transform: translateY(-6px) scale(1); }
+}
+.mk-sparkle-float {
+  animation: mk-sparkle-float 4s ease-in-out infinite;
+}
+
+/* Divider shimmer */
+@keyframes mk-divider-shimmer {
+  0% { transform: translateX(-100%); opacity: 0; }
+  30% { opacity: 1; }
+  70% { opacity: 1; }
+  100% { transform: translateX(100%); opacity: 0; }
+}
+.mk-divider-shimmer {
+  animation: mk-divider-shimmer 3.5s ease-in-out infinite;
+}
+
+/* Sparkle central qui tourne doucement */
+@keyframes mk-sparkle-spin {
+  0%, 100% { transform: rotate(0deg) scale(1); }
+  50% { transform: rotate(180deg) scale(1.15); }
+}
+.mk-sparkle-spin {
+  animation: mk-sparkle-spin 4s ease-in-out infinite;
+}
+
+/* Ligne de glow du header */
+@keyframes mk-header-glow {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 1; }
+}
+.mk-header-glow {
+  animation: mk-header-glow 4s ease-in-out infinite;
+}
+
+/* Apparition décalée des suggestions */
+@keyframes mk-suggestion-enter {
+  from { opacity: 0; transform: translateX(-12px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+.mk-suggestion-enter {
+  animation: mk-suggestion-enter 0.5s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+}
+
+/* Erreur en shake */
+@keyframes mk-error-shake {
+  0%, 100% { transform: translateX(0); }
+  20%, 60% { transform: translateX(-3px); }
+  40%, 80% { transform: translateX(3px); }
+}
+.mk-error-shake {
+  animation: mk-error-shake 0.4s ease-in-out;
+}
+
+/* Respect prefers-reduced-motion */
+@media (prefers-reduced-motion: reduce) {
+  .mk-message-enter,
+  .mk-bubble-sweep,
+  .mk-rune,
+  .mk-loading-shimmer,
+  .mk-emblem-breathe,
+  .mk-emblem-aura,
+  .mk-emblem-ring-rotate,
+  .mk-sparkle-float,
+  .mk-divider-shimmer,
+  .mk-sparkle-spin,
+  .mk-header-glow,
+  .mk-suggestion-enter,
+  .mk-error-shake {
+    animation: none !important;
+  }
+  .mk-bubble-sweep { display: none; }
+}

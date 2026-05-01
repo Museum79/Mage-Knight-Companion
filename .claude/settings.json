@@ -1,0 +1,32 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm install *)",
+      "Bash(curl -s http://localhost:5174)",
+      "Bash(curl -s http://localhost:5175)",
+      "Read(//private/var/folders/**)",
+      "Bash(xargs ls *)",
+      "Bash(/opt/homebrew/Cellar/poppler/26.04.0/bin/pdftotext /Users/sylvain/Documents/Workspace/mage-knight-companion/src/data/Mage_Knight_Livret_1_walkthrough_fr.pdf -)",
+      "Bash(/opt/homebrew/Cellar/poppler/26.04.0/bin/pdfinfo /Users/sylvain/Documents/Workspace/mage-knight-companion/src/data/Mage_Knight_Livret_1_walkthrough_fr.pdf)",
+      "Bash(curl -s -X POST http://localhost:5173/api/chat -H 'Content-Type: application/json' -d '{\"question\":\"test\"}')",
+      "Bash(curl -s -X POST http://localhost:5173/api/chat -H 'Content-Type: application/json' -d '{\"question\":\"Comment fonctionne le blocage en combat ?\"}')",
+      "Bash(curl -s -X POST 'https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=REDACTED_API_KEY' -H 'Content-Type: application/json' -d '{\"contents\":[{\"role\":\"user\",\"parts\":[{\"text\":\"Réponds en un mot : bonjour\"}]}]}')",
+      "Bash(curl -s -X POST http://localhost:5173/api/chat -H 'Content-Type: application/json' -d '{\"question\":\"Comment fonctionne le blocage ?\"}')",
+      "Bash(xargs cat *)",
+      "Bash(node -e \"const cards = require\\('/Users/sylvain/Documents/Workspace/mage-knight-companion/src/data/cards.js'\\); console.log\\('Artifacts:', cards.ARTIFACT_CARDS.length, 'Spells:', cards.SPELL_CARDS.length\\)\")",
+      "Bash(sed -i '' \"s|from '../../data/combatConstants'|from '../../../data/combatConstants'|g\" /Users/sylvain/Documents/Workspace/mage-knight-companion/src/components/combat/utils/combatAnalysis.ts)",
+      "Bash(sed -i '' \"s|from '../../data/combatConstants'|from '../data/combatConstants'|g\" /Users/sylvain/Documents/Workspace/mage-knight-companion/src/pages/DeckPage.jsx)",
+      "Bash(sed -i '' \"s|from '../../data/combatConstants'|from '../../../data/combatConstants'|g\" /Users/sylvain/Documents/Workspace/mage-knight-companion/src/components/combat/steps/CombatResolutionStep.jsx)",
+      "Bash(sed -i '' \"s|from '../../data/combatConstants'|from '../../../data/combatConstants'|g\" /Users/sylvain/Documents/Workspace/mage-knight-companion/src/components/combat/steps/HandBuildingStep.jsx)",
+      "Bash(sed -i '' \"s|from '../../data/combatConstants'|from '../../../data/combatConstants'|g\" /Users/sylvain/Documents/Workspace/mage-knight-companion/src/components/combat/enemies/EnemyCarousel.jsx)",
+      "Bash(sed -i '' \"s|from '../../data/combatConstants'|from '../../../data/combatConstants'|g\" /Users/sylvain/Documents/Workspace/mage-knight-companion/src/components/combat/enemies/EnemyBanner.jsx)",
+      "Bash(sed -i '' \"s|from '../../data/combatConstants'|from '../../../data/combatConstants'|g\" /Users/sylvain/Documents/Workspace/mage-knight-companion/src/components/combat/enemies/EnemyCard.jsx)",
+      "Bash(sed -i '' \"s|from '../../data/combatConstants'|from '../../../data/combatConstants'|g\" /Users/sylvain/Documents/Workspace/mage-knight-companion/src/components/combat/enemies/EnemyGridCard.jsx)",
+      "Bash(sed -i '' \"s|from '../../data/combatConstants'|from '../../../data/combatConstants'|g\" /Users/sylvain/Documents/Workspace/mage-knight-companion/src/components/combat/enemies/Badges.jsx)",
+      "Bash(git add *)",
+      "Bash(git commit -m 'Initial commit: Mage Knight Companion app setup *)",
+      "Bash(git checkout *)",
+      "Bash(git rebase *)"
+    ]
+  }
+}
