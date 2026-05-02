@@ -3,6 +3,7 @@ import { ChevronLeft } from 'lucide-react'
 import { CardLibrary } from '../components/combat/cards/CardLibrary'
 import { useGameStore } from '../store/gameStore'
 import { canFullyBlock } from '../components/combat/utils/combatAnalysis'
+import { TYPE_FR } from '../data/combatConstants'
 
 export function CardSelectionPage() {
   const navigate = useNavigate()
@@ -11,21 +12,37 @@ export function CardSelectionPage() {
   const getCardEffectiveness = card => {
     if (!selectedEnemy || !card.basicType) return null
     const type = card.basicType
-    if (type === 'Any') return 'full'
+
+    if (type === 'Any') return { level: 'full', note: 'Efficace contre tous les ennemis' }
 
     const typeBase = type.replace(' Attack', '').replace(' Block', '')
 
     if (selectedEnemy.immunities?.includes(typeBase)) {
-      return 'immune'
+      return {
+        level: 'immune',
+        note: `Imm. ${TYPE_FR[typeBase] ?? typeBase} — cette carte ne fait aucun effet`
+      }
     }
+
     if (selectedEnemy.resistances?.includes(typeBase)) {
-      return 'half'
+      return {
+        level: 'half',
+        note: `Rés. ${TYPE_FR[typeBase] ?? typeBase} — dégâts réduits de moitié`
+      }
     }
+
     if (type.includes('Attack')) {
-      return 'full'
+      return { level: 'full', note: 'Attaque efficace contre cet ennemi' }
     }
+
     if (type.includes('Block')) {
-      return canFullyBlock(type, selectedEnemy.attackType) ? 'full' : 'half'
+      const isFullBlock = canFullyBlock(type, selectedEnemy.attackType)
+      return {
+        level: isFullBlock ? 'full' : 'half',
+        note: isFullBlock
+          ? `Parade totale contre attaque ${TYPE_FR[selectedEnemy.attackType] ?? selectedEnemy.attackType}`
+          : `Parade inefficace vs ${TYPE_FR[selectedEnemy.attackType] ?? selectedEnemy.attackType} — blocage ÷2`
+      }
     }
 
     return null

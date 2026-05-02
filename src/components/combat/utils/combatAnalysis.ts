@@ -112,7 +112,7 @@ export function analyzeCombat(selectedEnemy: any, selectedCards: any[]): CombatA
 
   const cardContribs: CardContrib[] = selectedCards.map(card => {
     const modeData = getCardModeData(card, card.mode)
-    const type = modeData.type
+    const type = modeData.type || 'Physical'
     const value = modeData.value
     const typeBase = (type === 'Attack' || type === 'Block') ? 'Physical'
       : type.replace(' Attack', '').replace(' Block', '')

@@ -10,7 +10,8 @@
     "preview": "vite preview",
     "test": "vitest run",
     "test:watch": "vitest",
-    "test:coverage": "vitest run --coverage"
+    "test:coverage": "vitest run --coverage",
+    "generate-pwa-icons": "node scripts/generate-pwa-icons.js"
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.2.2",
@@ -35,7 +36,10 @@
     "eslint-plugin-react-hooks": "^7.0.1",
     "eslint-plugin-react-refresh": "^0.5.2",
     "globals": "^17.4.0",
+    "sharp": "^0.34.5",
     "vite": "^8.0.4",
-    "vitest": "^4.1.5"
+    "vite-plugin-pwa": "^1.2.0",
+    "vitest": "^4.1.5",
+    "workbox-window": "^7.4.0"
   }
 }

@@ -1,4 +1,9 @@
+import { useState } from 'react'
+import { Tooltip } from '../ui/Tooltip'
+
 export function VerdictBar({ enemy, analysis }) {
+  const [showLegend, setShowLegend] = useState(false)
+
   if (!analysis) {
     return (
       <div
@@ -77,8 +82,22 @@ export function VerdictBar({ enemy, analysis }) {
           </p>
         </div>
         <div className="rounded-lg px-3 py-1.5" style={{ background: 'rgba(14,11,8,0.58)', border: '1px solid rgba(80,70,50,0.35)' }}>
-          <p className="text-[9px] uppercase tracking-wide text-slate-500">
-            {isSwift ? 'BLQ VIF' : 'BLQ'}
+          <p className="text-[9px] uppercase tracking-wide text-slate-500 flex items-center gap-1">
+            {isSwift ? (
+              <>
+                BLQ <Tooltip
+                  borderColor="border-amber-800/60"
+                  content={
+                    <div>
+                      <p className="font-display font-bold text-sm text-amber-100 mb-1">Attaque Vif</p>
+                      <p className="text-xs text-slate-300 leading-relaxed">Cet ennemi est Vif. Son attaque compte pour le double : vous devez bloquer la totalité de ses dégâts.</p>
+                    </div>
+                  }
+                >
+                  <span className="text-[8px] cursor-help opacity-70 hover:opacity-100">Vif</span>
+                </Tooltip>
+              </>
+            ) : 'BLQ'}
           </p>
           <p className="font-display text-base font-bold flex items-center gap-1" style={{ color: canSurvive ? '#22c55e' : '#ef4444' }}>
             {totalBlk}/{blkNeeded}
@@ -86,9 +105,39 @@ export function VerdictBar({ enemy, analysis }) {
           </p>
         </div>
       </div>
-      <p className="font-display text-sm font-bold text-center" style={{ color: colors.text }}>
+      <p className="font-display text-sm font-bold text-center mb-2" style={{ color: colors.text }}>
         {verdictText}
       </p>
+      <button
+        onClick={() => setShowLegend(!showLegend)}
+        className="w-full text-[9px] text-slate-500 hover:text-slate-400 transition-colors text-center"
+      >
+        ⓘ {showLegend ? 'Masquer' : 'Légende'}
+      </button>
+      {showLegend && (
+        <div className="mt-2 pt-2 border-t border-slate-700/30 space-y-1 text-[9px] text-slate-400">
+          <div className="flex gap-2">
+            <span className="font-bold text-amber-300 w-8">ATQ</span>
+            <span>Vos dégâts totaux vs l'armure ennemie</span>
+          </div>
+          <div className="flex gap-2">
+            <span className="font-bold text-amber-300 w-8">BLQ</span>
+            <span>Votre blocage total vs l'attaque ennemie</span>
+          </div>
+          <div className="flex gap-2">
+            <span className="font-bold text-amber-300 w-8">Vif</span>
+            <span>Vous devez bloquer le double des dégâts</span>
+          </div>
+          <div className="flex gap-2">
+            <span className="font-bold text-green-400 w-8">✓</span>
+            <span>Seuil atteint — succès</span>
+          </div>
+          <div className="flex gap-2">
+            <span className="font-bold text-red-400 w-8">✗</span>
+            <span>Seuil non atteint — insuffisant</span>
+          </div>
+        </div>
+      )}
     </div>
   )
 }

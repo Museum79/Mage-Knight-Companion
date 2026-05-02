@@ -7,8 +7,11 @@ import CityPage from './pages/CityPage'
 import { GameSetupPage } from './pages/GameSetupPage'
 import { DeckPage } from './pages/DeckPage'
 import { CardSelectionPage } from './pages/CardSelectionPage'
+import { useTheme } from './hooks/useTheme'
 
 function App() {
+  useTheme()
+
   return (
     <BrowserRouter>
       <Routes>

@@ -1,7 +1,10 @@
 import { NavLink, Outlet, useLocation } from 'react-router-dom'
 import { Home, BookOpen, Swords, Layers } from 'lucide-react'
-import wallpaperLand from '../assets/wallpaper-land.png'
+import wallpaperDay from '../assets/wallpaper-day.webp'
+import wallpaperNight from '../assets/wallpaper-night.webp'
 import placesIcon from '../assets/icons/places.svg'
+import { ThemeToggle } from './ui/ThemeToggle'
+import { useThemeStore } from '../store/themeStore'
 
 const NAV = [
   { to: '/',       icon: Home,     label: 'Accueil', end: true  },
@@ -13,21 +16,50 @@ const NAV = [
 
 export function Layout() {
   const { pathname } = useLocation()
+  const { theme } = useThemeStore()
   const isHome = pathname === '/'
 
   return (
-    <div className={`relative min-h-screen text-slate-100 flex flex-col ${isHome ? 'bg-slate-950' : ''}`}>
+    <div className="relative min-h-screen flex flex-col" style={{ color: 'var(--text-primary)', background: isHome ? 'var(--bg-primary)' : 'transparent' }}>
 
       {!isHome && (
         <>
-          <img
-            src={wallpaperLand}
-            alt=""
-            className="absolute inset-0 z-0 h-full w-full object-cover pointer-events-none select-none"
-          />
+          <div style={{
+            position: 'absolute',
+            inset: 0,
+            opacity: theme === 'light' ? 0 : 1,
+            transition: 'opacity 0.6s ease-in-out',
+            zIndex: 0,
+            pointerEvents: 'none',
+          }}>
+            <img
+              src={wallpaperNight}
+              alt=""
+              className="h-full w-full object-cover select-none"
+            />
+          </div>
+          <div style={{
+            position: 'absolute',
+            inset: 0,
+            opacity: theme === 'light' ? 1 : 0,
+            transition: 'opacity 0.6s ease-in-out',
+            zIndex: 0,
+            pointerEvents: 'none',
+          }}>
+            <img
+              src={wallpaperDay}
+              alt=""
+              className="h-full w-full object-cover select-none"
+            />
+          </div>
           <div className="absolute inset-0 z-0 bg-[linear-gradient(180deg,rgba(6,5,4,0.52)_0%,rgba(10,8,7,0.28)_28%,rgba(7,6,5,0.42)_100%)] pointer-events-none" />
         </>
       )}
+
+      {/* Theme toggle - always absolute, positioned at top right */}
+      <div className="fixed top-0 right-0 z-20 p-4" style={{ paddingTop: 'max(env(safe-area-inset-top), 16px)' }}>
+        <ThemeToggle />
+      </div>
 
       <main className="relative z-10 flex-1 overflow-hidden">
         {!isHome && (

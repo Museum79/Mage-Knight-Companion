@@ -20,7 +20,7 @@ export function EnemyBanner({ enemy, analysis }) {
     <div className="rounded-[1.1rem] border relative overflow-hidden" style={{ borderColor: theme.border }}>
       {enemy.image && (
         <div className="absolute inset-0">
-          <img src={enemy.image} alt="" className="w-full h-full object-cover object-center" />
+          <img src={enemy.image} alt="" className="w-full h-full object-cover object-top" />
         </div>
       )}
 

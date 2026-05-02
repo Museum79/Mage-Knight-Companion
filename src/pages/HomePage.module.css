@@ -12,7 +12,7 @@
   top: 0;
   left: 0;
   right: 0;
-  height: 380px;
+  height: 480px;
   width: 100%;
   object-fit: cover;
   object-position: center 22%;
@@ -24,7 +24,7 @@
   top: 0;
   left: 0;
   right: 0;
-  height: 380px;
+  height: 480px;
   background: linear-gradient(180deg,
     rgba(8, 6, 4, 0.4) 0%,
     transparent 35%,

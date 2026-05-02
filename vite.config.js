@@ -1,6 +1,7 @@
 import { defineConfig, loadEnv } from 'vite'
 import react from '@vitejs/plugin-react'
 import tailwindcss from '@tailwindcss/vite'
+import { VitePWA } from 'vite-plugin-pwa'
 import { FULL_RULES_TEXT } from './src/data/rules.js'
 
 const SYSTEM_PROMPT = `Tu es un expert des règles du jeu de société Mage Knight Board Game.
@@ -19,6 +20,64 @@ export default defineConfig(({ mode }) => {
     plugins: [
       react(),
       tailwindcss(),
+      VitePWA({
+        registerType: 'autoUpdate',
+        includeAssets: ['favicon.ico', 'apple-touch-icon.png'],
+        manifest: {
+          name: 'Mage Knight Companion',
+          short_name: 'MK Companion',
+          description: 'Assistant de règles et outil de combat pour Mage Knight Board Game',
+          theme_color: '#0c0a07',
+          background_color: '#0c0a07',
+          display: 'standalone',
+          scope: '/',
+          start_url: '/',
+          icons: [
+            {
+              src: 'pwa-192x192.png',
+              sizes: '192x192',
+              type: 'image/png',
+              purpose: 'any',
+            },
+            {
+              src: 'pwa-512x512.png',
+              sizes: '512x512',
+              type: 'image/png',
+              purpose: 'any',
+            },
+            {
+              src: 'pwa-maskable-192x192.png',
+              sizes: '192x192',
+              type: 'image/png',
+              purpose: 'maskable',
+            },
+            {
+              src: 'pwa-maskable-512x512.png',
+              sizes: '512x512',
+              type: 'image/png',
+              purpose: 'maskable',
+            },
+          ],
+        },
+        workbox: {
+          clientsClaim: true,
+          skipWaiting: true,
+          globPatterns: ['**/*.{js,css,html,ico,png,svg,webp,woff2}'],
+          runtimeCaching: [
+            {
+              urlPattern: /^https:\/\/generativelanguage\.googleapis\.com\//,
+              handler: 'NetworkFirst',
+              options: {
+                cacheName: 'gemini-api',
+                expiration: {
+                  maxEntries: 50,
+                  maxAgeSeconds: 3600,
+                },
+              },
+            },
+          ],
+        },
+      }),
       {
         name: 'local-api',
         configureServer(server) {

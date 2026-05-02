@@ -2,7 +2,8 @@
 import { useNavigate } from 'react-router-dom'
 import { useState } from 'react'
 import { X } from 'lucide-react'
-import heroImg from '../assets/hero.png'
+import wallpaperDay from '../assets/wallpaper-day.webp'
+import wallpaperNight from '../assets/wallpaper-night.webp'
 import titleMKC from '../assets/titleMKC.png'
 import rulesIcon from '../assets/icons/rules.svg'
 import combatIcon from '../assets/icons/combat.svg'
@@ -13,6 +14,7 @@ import dragonFeu from '../assets/img/ennemies/dragon-feu.webp'
 import forteresse from '../assets/img/lieux/Forteresse.webp'
 import { Embers } from '../components/effects/Embers'
 import { useGameStore } from '../store/gameStore'
+import { useThemeStore } from '../store/themeStore'
 import { HEROES } from '../data/heroes'
 import { SCENARIOS } from '../data/scenarios'
 import styles from './HomePage.module.css'
@@ -53,6 +55,7 @@ const CHAPTERS = [
 export function HomePage() {
   const navigate = useNavigate()
   const { isActive, heroId, scenarioId, playerDeck, endGame } = useGameStore()
+  const { theme } = useThemeStore()
   const [active, setActive] = useState(null)
 
   const hero = HEROES.find(h => h.id === heroId)
@@ -64,7 +67,7 @@ export function HomePage() {
         {
           key: 'create-game',
           to: '/setup',
-          img: heroImg,
+          img: wallpaperDay,
           icon: createGameIcon,
           title: 'Créer une Partie',
           sub: 'Lance ta quête personnelle',
@@ -79,7 +82,22 @@ export function HomePage() {
     <div className="relative flex flex-col h-full overflow-hidden bg-slate-950">
       {/* Hero backdrop (top portion only) */}
       <div className={styles.heroBackdrop}>
-        <img src={heroImg} alt="" className={styles.heroImg} />
+        <div style={{
+          position: 'absolute',
+          inset: 0,
+          opacity: theme === 'light' ? 0 : 1,
+          transition: 'opacity 0.6s ease-in-out',
+        }}>
+          <img src={wallpaperNight} alt="" className={styles.heroImg} />
+        </div>
+        <div style={{
+          position: 'absolute',
+          inset: 0,
+          opacity: theme === 'light' ? 1 : 0,
+          transition: 'opacity 0.6s ease-in-out',
+        }}>
+          <img src={wallpaperDay} alt="" className={styles.heroImg} />
+        </div>
         <div className={styles.heroFade} />
       </div>
 
