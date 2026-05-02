@@ -1,6 +1,7 @@
 import { X } from 'lucide-react'
 import { CARD_COLOR_THEME } from '../../data/combatConstants'
 import { getModeLabel } from '../combat/utils/combatAnalysis'
+import { CardDisplay } from '../ui/CardDisplay'
 
 export function HandCardItem({
   card,
@@ -11,7 +12,6 @@ export function HandCardItem({
   onRemove,
 }) {
   const colorTheme = CARD_COLOR_THEME[card.color]
-  const dotColor = colorTheme?.bg || '#fbbf24'
 
   // Determine contribution text and color
   let atkText = null
@@ -33,10 +33,11 @@ export function HandCardItem({
   const modes = ['normal', 'powered', 'tilt_attack', 'tilt_block']
 
   return (
-    <div className="rounded-[1.1rem] border p-3" style={{ borderColor: colorTheme?.accent || '#fbbf24', background: 'rgba(14,11,8,0.6)' }}>
-      <div className="flex items-start justify-between gap-2 mb-2">
-        <div className="flex items-start gap-2 flex-1 min-w-0">
-          <div className="w-3 h-3 rounded-full shrink-0 mt-1.5" style={{ background: dotColor }} />
+    <CardDisplay
+      card={card}
+      style={{ border: `1px solid ${colorTheme?.accent || '#fbbf24'}` }}
+      header={
+        <div className="flex items-start justify-between gap-2">
           <div className="flex-1 min-w-0">
             <p className="font-display font-bold text-sm text-amber-100 truncate">
               {card.name}
@@ -63,37 +64,36 @@ export function HandCardItem({
               </div>
             )}
           </div>
-        </div>
-        <button
-          onClick={() => onRemove(card.id)}
-          className="text-slate-500 hover:text-slate-300 transition-colors shrink-0"
-          aria-label="Retirer"
-        >
-          <X size={16} />
-        </button>
-      </div>
-
-      <div className="flex gap-1.5 flex-wrap">
-        {modes.map(m => (
           <button
-            key={m}
-            onClick={() => onSetMode(card.id, m)}
-            className={`flex-1 min-w-fit px-2 py-1.5 rounded-lg text-[10px] font-bold uppercase tracking-wide transition-all ${
-              mode === m
-                ? 'opacity-100'
-                : 'opacity-60 hover:opacity-80'
-            }`}
-            style={{
-              background: mode === m ? colorTheme?.accent : 'rgba(14,11,8,0.8)',
-              color: mode === m ? '#0a0803' : colorTheme?.accent || '#fbbf24',
-              border: `1px solid ${colorTheme?.accent || '#fbbf24'}`,
-              borderOpacity: mode === m ? 1 : 0.3,
-            }}
+            onClick={() => onRemove(card.id)}
+            className="text-slate-500 hover:text-slate-300 transition-colors shrink-0 mt-0.5"
+            aria-label="Retirer"
           >
-            {getModeLabel(m)}
+            <X size={16} />
           </button>
-        ))}
-      </div>
-    </div>
+        </div>
+      }
+      footer={
+        <div className="flex gap-1.5 flex-wrap">
+          {modes.map(m => (
+            <button
+              key={m}
+              onClick={() => onSetMode(card.id, m)}
+              className={`flex-1 min-w-fit px-2 py-1.5 rounded-lg text-[10px] font-bold uppercase tracking-wide transition-all ${
+                mode === m ? 'opacity-100' : 'opacity-60 hover:opacity-80'
+              }`}
+              style={{
+                background: mode === m ? colorTheme?.accent : 'rgba(14,11,8,0.8)',
+                color: mode === m ? '#0a0803' : colorTheme?.accent || '#fbbf24',
+                border: `1px solid ${colorTheme?.accent || '#fbbf24'}`,
+                borderOpacity: mode === m ? 1 : 0.3,
+              }}
+            >
+              {getModeLabel(m)}
+            </button>
+          ))}
+        </div>
+      }
+    />
   )
 }

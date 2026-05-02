@@ -1,33 +1,32 @@
 export function TabBar({ tabs, activeTab, onChange }) {
   return (
-    <div className="flex gap-2 mb-4 overflow-x-auto pb-2">
-      {tabs.map(tab => (
-        <button
-          key={tab.id}
-          onClick={() => onChange(tab.id)}
-          className="shrink-0 px-3 py-1.5 rounded-full text-xs font-medium transition-all whitespace-nowrap relative group"
-          style={{
-            background: activeTab === tab.id
-              ? 'rgba(200, 160, 40, 0.25)'
-              : 'rgba(40, 35, 28, 0.6)',
-            border: activeTab === tab.id
-              ? `1px solid ${tab.accent || '#c8a028'}`
-              : '1px solid rgba(116, 95, 63, 0.3)',
-            color: activeTab === tab.id ? '#e8cc60' : '#a58a63',
-          }}
-        >
-          <span>{tab.label}</span>
-          {tab.badge !== undefined && (
-            <span className="ml-1.5 inline-flex items-center justify-center w-4 h-4 text-[10px] font-bold rounded-full"
-              style={{
-                background: 'rgba(200, 160, 40, 0.3)',
-                color: '#e8cc60',
-              }}>
-              {tab.badge}
-            </span>
-          )}
-        </button>
-      ))}
+    <div className="flex gap-1.5 px-3 pb-2 overflow-x-auto scrollbar-none">
+      {tabs.map(tab => {
+        const accentColor = tab.accent || '#c8a028'
+        return (
+          <button
+            key={tab.id}
+            onClick={() => onChange(tab.id)}
+            className="shrink-0 flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-bold tracking-wide transition-all"
+            style={{
+              background: activeTab === tab.id ? accentColor + '22' : 'rgba(18,14,10,0.8)',
+              border: `1px solid ${activeTab === tab.id ? accentColor : 'rgba(80,68,50,0.35)'}`,
+              color: activeTab === tab.id ? accentColor : 'rgba(120,100,70,0.75)',
+            }}
+          >
+            {tab.badge === undefined && <span className="w-1.5 h-1.5 rounded-full shrink-0" style={{ background: accentColor }} />}
+            <span>{tab.label}</span>
+            {tab.badge !== undefined && (
+              <span
+                className="min-w-4 h-4 px-0.5 rounded-full flex items-center justify-center text-[9px] font-bold"
+                style={{ background: accentColor, color: '#0f0c08' }}
+              >
+                {tab.badge}
+              </span>
+            )}
+          </button>
+        )
+      })}
     </div>
   )
 }

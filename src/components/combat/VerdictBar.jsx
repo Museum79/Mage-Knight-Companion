@@ -11,6 +11,19 @@ export function VerdictBar({ enemy, analysis }) {
   }
 
   const { totalAtk, totalBlk, atkNeeded, blkNeeded, canKill, canSurvive, isSwift } = analysis
+
+  // Si aucune carte n'a été ajoutée, afficher message neutre
+  if (totalAtk === 0 && totalBlk === 0) {
+    return (
+      <div
+        className="rounded-[1.1rem] border p-3 bg-slate-900/50"
+        style={{ borderColor: 'rgba(80,70,50,0.2)' }}
+      >
+        <p className="text-xs text-slate-500 text-center">Ajoutez des cartes pour analyser le combat</p>
+      </div>
+    )
+  }
+
   const isBrutal = enemy?.abilities.includes('Brutal')
   const dmgTaken = canSurvive ? 0 : enemy?.attack * (isBrutal ? 2 : 1)
 

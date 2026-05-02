@@ -34,9 +34,9 @@ export function EnemyCarousel({ selectedEnemy, onSelect }) {
               <button
                 key={cat}
                 onClick={() => setActiveTab(cat)}
-                className="shrink-0 px-3.5 py-2.5 text-xs font-bold tracking-widest uppercase transition-all active:scale-95 relative"
+                className="shrink-0 px-2.5 py-1.5 text-[11px] font-bold tracking-wide uppercase transition-all active:scale-95 relative"
                 style={{
-                  color: isActive ? catTheme.accent : 'rgba(100,85,65,0.8)',
+                  color: isActive ? catTheme.accent : 'rgba(150,130,100,0.95)',
                   background: isActive ? 'rgba(0,0,0,0.4)' : 'rgba(20,16,12,0.3)',
                   border: `1px solid ${isActive ? catTheme.border : 'rgba(70,60,50,0.3)'}`,
                   borderRadius: '0.5rem',
@@ -45,10 +45,10 @@ export function EnemyCarousel({ selectedEnemy, onSelect }) {
                     : 'inset 0 1px 2px rgba(255,255,255,0.05)',
                 }}
               >
-                <div className="flex items-center gap-1.5">
-                  <span className="w-2 h-2 rounded-full" style={{ background: catTheme.accent, opacity: isActive ? 1 : 0.4 }} />
-                  <span>{catTheme.label}</span>
-                  <span className="text-[10px] opacity-60 font-normal">({count})</span>
+                <div className="flex items-center gap-1">
+                  <span className="w-1.5 h-1.5 rounded-full" style={{ background: catTheme.accent, opacity: isActive ? 1 : 0.5 }} />
+                  <span className="whitespace-nowrap">{catTheme.label}</span>
+                  {count > 0 && <span className="text-[9px] opacity-60 font-normal">({count})</span>}
                 </div>
                 {isActive && (
                   <div

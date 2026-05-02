@@ -8,6 +8,9 @@ export const useGameStore = create(persist(
     heroId: null,
     scenarioId: null,
     playerDeck: {},
+    handCards: {},
+    cardModes: {},
+    selectedEnemy: null,
 
     startGame: (heroId, scenarioId) => {
       const hero = HEROES.find(h => h.id === heroId)
@@ -22,7 +25,7 @@ export const useGameStore = create(persist(
     },
 
     endGame: () => {
-      set({ isActive: false, heroId: null, scenarioId: null, playerDeck: {} })
+      set({ isActive: false, heroId: null, scenarioId: null, playerDeck: {}, handCards: {}, cardModes: {} })
     },
 
     addCard: (cardId) => set(s => ({
@@ -38,6 +41,31 @@ export const useGameStore = create(persist(
       }
       return { playerDeck: deck }
     }),
+
+    addHandCard: (cardId) => set(s => ({
+      handCards: { ...s.handCards, [cardId]: (s.handCards[cardId] || 0) + 1 }
+    })),
+
+    removeHandCard: (cardId) => set(s => {
+      if ((s.handCards[cardId] || 0) <= 1) {
+        const modes = { ...s.cardModes }
+        delete modes[cardId]
+        const hand = { ...s.handCards }
+        delete hand[cardId]
+        return { handCards: hand, cardModes: modes }
+      }
+      return {
+        handCards: { ...s.handCards, [cardId]: s.handCards[cardId] - 1 }
+      }
+    }),
+
+    setCardMode: (cardId, mode) => set(s => ({
+      cardModes: { ...s.cardModes, [cardId]: mode }
+    })),
+
+    clearHand: () => set({ handCards: {}, cardModes: {} }),
+
+    setSelectedEnemy: (enemy) => set({ selectedEnemy: enemy }),
   }),
   { name: 'mage-knight-game' }
 ))

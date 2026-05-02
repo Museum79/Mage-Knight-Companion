@@ -10,7 +10,7 @@ export function isBlock(type: string) {
 
 export function canFullyBlock(cardType: string, enemyType: string) {
   const table = {
-    Physical: ['Physical'],
+    Physical: ['Physical', 'Block'],
     Fire: ['Ice', 'ColdFire'],
     Ice: ['Fire', 'ColdFire'],
     ColdFire: ['ColdFire'],
@@ -98,25 +98,66 @@ export interface CombatAnalysis {
   atkNeeded: number
   blkNeeded: number
   isSwift: boolean
+  isBrutal: boolean
+  isRanged: boolean
+  isParalyzed: boolean
   cardContribs: CardContrib[]
 }
 
 export function analyzeCombat(selectedEnemy: any, selectedCards: any[]): CombatAnalysis | null {
   if (!selectedEnemy) return null
 
+  const isFortified = selectedEnemy.abilities.includes('Fortified')
+  const isElusive = selectedEnemy.abilities.includes('Elusive')
+
   const cardContribs: CardContrib[] = selectedCards.map(card => {
     const modeData = getCardModeData(card, card.mode)
     const type = modeData.type
     const value = modeData.value
-    const typeBase = type.replace(' Attack', '').replace(' Block', '')
+    const typeBase = (type === 'Attack' || type === 'Block') ? 'Physical'
+      : type.replace(' Attack', '').replace(' Block', '')
 
     let atk: number | null = null
     let atkNote: string | null = null
     if (isAttack(type)) {
-      if (selectedEnemy.immunities.includes(typeBase)) {
+      // Check Fortified ability: only Siege attacks work
+      if (isFortified && !type.includes('Siege')) {
+        atk = 0
+        atkNote = 'Attaque inefficace (Fortifié — Siège requis)'
+      }
+      // Check Elusive ability: Physical attacks don't work
+      else if (isElusive && typeBase === 'Physical') {
+        atk = 0
+        atkNote = 'Attaque physique inefficace (Insaisissable)'
+      }
+      // Check immunities
+      else if (selectedEnemy.immunities.includes(typeBase)) {
         atk = 0
         atkNote = `Imm. ${TYPE_FR[typeBase as keyof typeof TYPE_FR] ?? typeBase}`
-      } else if (selectedEnemy.resistances.includes(typeBase)) {
+      }
+      // Check ColdFire combo (Fire+Ice immunity)
+      else if (typeBase === 'ColdFire') {
+        const fireImmune = selectedEnemy.immunities.includes('Fire')
+        const iceImmune = selectedEnemy.immunities.includes('Ice')
+        if (fireImmune && iceImmune) {
+          atk = 0
+          atkNote = 'Immunité Feu Glacé (Imm. Feu + Glace)'
+        } else if (fireImmune || iceImmune) {
+          atk = Math.floor(value / 2)
+          atkNote = `Résistance partielle Feu Glacé (÷2 = ${Math.floor(value / 2)})`
+        } else {
+          const fireResist = selectedEnemy.resistances.includes('Fire')
+          const iceResist = selectedEnemy.resistances.includes('Ice')
+          if (fireResist || iceResist) {
+            atk = Math.floor(value / 2)
+            atkNote = `Résistance ${fireResist ? 'Feu' : 'Glace'} (Feu Glacé ÷2 = ${Math.floor(value / 2)})`
+          } else {
+            atk = value
+          }
+        }
+      }
+      // Check resistances
+      else if (selectedEnemy.resistances.includes(typeBase)) {
         atk = Math.floor(value / 2)
         atkNote = `Rés. ${TYPE_FR[typeBase as keyof typeof TYPE_FR] ?? typeBase} (÷2 = ${Math.floor(value / 2)})`
       } else {
@@ -154,16 +195,26 @@ export function analyzeCombat(selectedEnemy: any, selectedCards: any[]): CombatA
   const totalAtk = cardContribs.reduce((s, c) => s + (c.atk ?? 0), 0)
   const totalBlk = cardContribs.reduce((s, c) => s + (c.blk ?? 0), 0)
   const isSwift = selectedEnemy.abilities.includes('Swift')
+  const isBrutal = selectedEnemy.abilities.includes('Brutal')
+  const isRanged = selectedEnemy.abilities.includes('Ranged')
+  const isParalyze = selectedEnemy.abilities.includes('Paralyze')
   const blkNeeded = selectedEnemy.attack * (isSwift ? 2 : 1)
+
+  const canSurvive = totalBlk >= blkNeeded
+  const isParalyzed = isParalyze && !canSurvive
+  const canKill = isParalyzed ? false : totalAtk >= selectedEnemy.armor
 
   return {
     totalAtk,
     totalBlk,
-    canKill: totalAtk >= selectedEnemy.armor,
-    canSurvive: totalBlk >= blkNeeded,
+    canKill,
+    canSurvive,
     atkNeeded: selectedEnemy.armor,
     blkNeeded,
     isSwift,
+    isBrutal,
+    isRanged,
+    isParalyzed,
     cardContribs,
   }
 }

@@ -2,9 +2,8 @@ import { SectionHeader } from '../common/SectionHeader'
 import { ContribRow } from './ContribRow'
 
 export function VerdictBanner({ enemy, analysis }) {
-  const { totalAtk, totalBlk, atkNeeded, blkNeeded, canKill, canSurvive, isSwift } = analysis
+  const { totalAtk, totalBlk, atkNeeded, blkNeeded, canKill, canSurvive, isSwift, isBrutal, isRanged, isParalyzed } = analysis
 
-  const isBrutal = enemy.abilities.includes('Brutal')
   const dmgTaken = canSurvive ? 0 : enemy.attack * (isBrutal ? 2 : 1)
 
   const verdictColors = {
@@ -35,9 +34,11 @@ export function VerdictBanner({ enemy, analysis }) {
     ? 'Victoire sans blessure !'
     : canKill
       ? `Victoire — ${dmgTaken} blessure${dmgTaken > 1 ? 's' : ''}`
-      : canSurvive
-        ? 'Ennemi non tué'
-        : 'Combat perdu — fuyez !'
+      : isParalyzed
+        ? `Paralysé — ${dmgTaken} blessure${dmgTaken > 1 ? 's' : ''}, impossible d'attaquer`
+        : canSurvive
+          ? 'Ennemi non tué'
+          : 'Combat perdu — fuyez !'
 
   return (
     <div
@@ -72,6 +73,12 @@ export function VerdictBanner({ enemy, analysis }) {
           ok={canSurvive}
         />
       </div>
+
+      {isRanged && (
+        <p className="text-xs text-amber-400 text-center mt-2">
+          ⚠ Attaque à Distance — l'ennemi attaque en premier
+        </p>
+      )}
     </div>
   )
 }

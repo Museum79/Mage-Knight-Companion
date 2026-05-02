@@ -6,6 +6,7 @@ import { CombatPage } from './pages/CombatPage'
 import CityPage from './pages/CityPage'
 import { GameSetupPage } from './pages/GameSetupPage'
 import { DeckPage } from './pages/DeckPage'
+import { CardSelectionPage } from './pages/CardSelectionPage'
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
           <Route index element={<HomePage />} />
           <Route path="rules" element={<RulesPage />} />
           <Route path="combat" element={<CombatPage />} />
+          <Route path="combat/cards" element={<CardSelectionPage />} />
           <Route path="map" element={<CityPage/>}/>
           <Route path="setup" element={<GameSetupPage />} />
           <Route path="deck" element={<DeckPage />} />

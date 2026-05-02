@@ -1,4 +1,3 @@
-import { ChevronRight } from 'lucide-react'
 import { CARD_COLOR_THEME } from '../../data/combatConstants'
 
 export function EnemyPill({ selectedEnemy, onSelectClick }) {
@@ -51,7 +50,7 @@ export function EnemyPill({ selectedEnemy, onSelectClick }) {
             )}
           </div>
         </div>
-        <ChevronRight size={20} className="text-slate-500 shrink-0 mt-0.5" />
+        <span className="text-xs text-slate-400 shrink-0 mt-1 font-display">CHANGER</span>
       </div>
     </button>
   )
