@@ -57,7 +57,7 @@ export function Layout() {
       )}
 
       {/* Theme toggle - always absolute, positioned at top right */}
-      <div className="fixed top-0 right-0 z-20 p-4" style={{ paddingTop: 'max(env(safe-area-inset-top), 16px)' }}>
+      <div className="fixed top-0 right-0 z-20 p-3 sm:p-4" style={{ paddingTop: 'max(env(safe-area-inset-top), 12px)', paddingRight: 'max(env(safe-area-inset-right), 12px)' }}>
         <ThemeToggle />
       </div>
 
@@ -71,12 +71,12 @@ export function Layout() {
       </main>
 
       {/* Bottom navigation */}
-      <nav className={`relative z-10 shrink-0 border-t border-slate-800/40 pb-safe ${isHome ? 'bg-slate-950/98 backdrop-blur' : 'mk-panel-soft'}`}>
+      <nav className={`relative z-10 shrink-0 border-t border-slate-800/40 ${isHome ? 'bg-slate-950/98 backdrop-blur' : 'mk-panel-soft'}`} style={{ paddingBottom: 'max(env(safe-area-inset-bottom), 8px)' }}>
         <div className="flex">
           {NAV.map(({ to, icon: Icon, imgSrc, label, end }) => (
             <NavLink key={to} to={to} end={end}
               className={({ isActive }) =>
-                `flex-1 flex flex-col items-center gap-1 py-2.5 text-[11px] font-medium tracking-wide transition-colors ${
+                `flex-1 flex flex-col items-center gap-1 py-3 sm:py-2.5 text-[11px] font-medium tracking-wide transition-colors ${
                   isActive ? 'text-gold-300' : 'text-[#8d7756]'
                 }`
               }

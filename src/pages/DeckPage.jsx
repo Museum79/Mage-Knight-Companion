@@ -71,9 +71,9 @@ export function DeckPage() {
   return (
     <div className="flex flex-col h-full overflow-hidden bg-linear-to-b from-slate-900 via-slate-850 to-slate-800">
       {/* En-tête */}
-      <div className="shrink-0 px-4 pt-6 pb-4 border-b border-slate-700/30">
-        <div className="flex items-start justify-between gap-4 mb-2">
-          <h1 className="font-display text-3xl tracking-[0.12em] uppercase" style={{ color: '#f0e4c4' }}>
+      <div className="shrink-0 px-4 pt-4 sm:pt-6 pb-4 border-b border-slate-700/30">
+        <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-3 sm:gap-4 mb-2">
+          <h1 className="font-display text-2xl sm:text-3xl tracking-[0.12em] uppercase" style={{ color: '#f0e4c4' }}>
             Mon Deck
           </h1>
           <button
@@ -250,8 +250,8 @@ export function DeckPage() {
 
       {/* Modal Ajouter une carte */}
       {showAddCard && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center px-4 py-6 overflow-y-auto" style={{ background: 'rgba(4,3,2,0.85)' }}>
-          <div className="w-full max-w-5xl bg-linear-to-br from-slate-900 via-slate-850 to-slate-800 rounded-2xl border border-slate-700/50 flex flex-col h-[90vh] max-h-[90vh]" style={{
+        <div className="fixed inset-x-0 bottom-0 sm:inset-0 z-50 flex sm:items-center sm:justify-center px-0 sm:px-4 py-0 sm:py-6 overflow-y-auto" style={{ background: 'rgba(4,3,2,0.85)' }}>
+          <div className="w-full sm:max-w-5xl bg-linear-to-br from-slate-900 via-slate-850 to-slate-800 rounded-t-3xl sm:rounded-2xl border border-slate-700/50 flex flex-col h-full sm:h-[90vh] sm:max-h-[90vh]" style={{
             boxShadow: '0 20px 60px rgba(0,0,0,0.8), inset 0 1px 1px rgba(255,255,255,0.1)',
           }}>
             {/* Header */}
@@ -294,8 +294,8 @@ export function DeckPage() {
             </div>
 
             {/* Contenu - Grille de cartes */}
-            <div className="flex-1 overflow-y-auto px-6 py-4">
-              <div className="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-2">
+            <div className="flex-1 overflow-y-auto px-4 sm:px-6 py-4">
+              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-2">
                 {ALL_CARDS.filter(c => c.color === addCardColor).map(card => {
                   const count = playerDeck[card.id] || 0
                   const theme = CARD_COLOR_THEME[addCardColor]

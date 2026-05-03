@@ -51,21 +51,21 @@ export function CombatPage() {
   return (
     <div className="flex flex-col h-full overflow-hidden bg-slate-950">
       {/* Header */}
-      <div className="shrink-0 px-4 pt-6 pb-4 border-b border-slate-800/50">
-        <h1 className="font-display text-3xl tracking-[0.12em] uppercase" style={{ color: '#f0e4c4' }}>
+      <div className="shrink-0 px-4 pt-4 sm:pt-6 pb-4 border-b border-slate-800/50">
+        <h1 className="font-display text-2xl sm:text-3xl tracking-[0.12em] uppercase" style={{ color: '#f0e4c4' }}>
           ⚔️ Combat
         </h1>
       </div>
 
       {/* Progress bar */}
-      <div className="shrink-0 px-4 py-3 border-b border-slate-800/30 bg-slate-900/30">
-        <div className="flex items-center justify-center gap-6">
+      <div className="shrink-0 px-3 sm:px-4 py-2 sm:py-3 border-b border-slate-800/30 bg-slate-900/30">
+        <div className="flex items-center justify-center gap-1.5 sm:gap-3 overflow-x-auto px-1 scrollbar-none">
           {STEPS.map((s, idx) => (
-            <div key={s.id} className="flex items-center gap-3">
+            <div key={s.id} className="flex items-center gap-1.5 sm:gap-3 shrink-0">
               <button
                 onClick={() => handleStepClick(s.id)}
                 disabled={s.id > step}
-                className={`flex items-center justify-center w-8 h-8 rounded-full font-bold text-xs transition-all ${
+                className={`flex items-center justify-center w-7 sm:w-8 h-7 sm:h-8 rounded-full font-bold text-xs transition-all ${
                   s.id < step
                     ? 'bg-green-900/40 text-green-400 cursor-pointer hover:bg-green-800/50'
                     : s.id === step
@@ -75,13 +75,13 @@ export function CombatPage() {
               >
                 {s.id < step ? '✓' : s.id + 1}
               </button>
-              <span className={`text-xs font-bold tracking-wide ${
+              <span className={`text-xs font-bold tracking-wide hidden sm:inline ${
                 s.id <= step ? 'text-amber-100' : 'text-slate-500'
               }`}>
                 {s.label}
               </span>
               {idx < STEPS.length - 1 && (
-                <ChevronRight size={16} className="text-slate-600 mx-2" />
+                <ChevronRight size={14} className="text-slate-600 hidden sm:block mx-1" />
               )}
             </div>
           ))}

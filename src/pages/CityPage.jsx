@@ -140,9 +140,9 @@ export default function CityPage() {
     <div className="h-full flex flex-col overflow-hidden">
 
       {/* En-tête fixe */}
-      <div className="shrink-0 px-4 pt-6 pb-4">
+      <div className="shrink-0 px-4 pt-4 sm:pt-6 pb-4">
         <h1
-          className="font-display text-4xl tracking-[0.12em] uppercase"
+          className="font-display text-3xl sm:text-4xl tracking-[0.12em] uppercase"
           style={{ color: '#f0e4c4', textShadow: '0 2px 16px rgba(0,0,0,0.7), 0 0 40px rgba(200,150,40,0.15)' }}
         >
           Lieux

@@ -66,8 +66,8 @@ export function GameSetupPage() {
   return (
     <div className="flex flex-col h-full overflow-hidden">
       {/* En-tête */}
-      <div className="shrink-0 px-4 pt-6 pb-4">
-        <h1 className="font-display text-3xl tracking-[0.12em] uppercase" style={{ color: '#f0e4c4' }}>
+      <div className="shrink-0 px-4 pt-4 sm:pt-6 pb-4">
+        <h1 className="font-display text-2xl sm:text-3xl tracking-[0.12em] uppercase" style={{ color: '#f0e4c4' }}>
           Nouvelle partie
         </h1>
         <p className="text-[11px] tracking-widest mt-1 uppercase" style={{ color: 'rgba(160,140,100,0.7)' }}>
@@ -137,7 +137,7 @@ export function GameSetupPage() {
                   onTouchStart={handleTouchStart}
                   onTouchMove={handleTouchMove}
                   onTouchEnd={handleTouchEnd}
-                  className="relative w-full h-96 rounded-2xl overflow-hidden cursor-pointer block touch-none"
+                  className="relative w-full h-72 sm:h-96 rounded-2xl overflow-hidden cursor-pointer block touch-none"
                   style={{
                     boxShadow: selectedHero?.id === currentHero.id
                       ? `0 0 45px ${currentHero.glowColor}, 0 0 30px ${currentHero.glowColor}80, 0 20px 50px rgba(0,0,0,0.8)`
@@ -181,7 +181,7 @@ export function GameSetupPage() {
             </div>
 
             {/* Dots indicator */}
-            <div className="flex gap-2 mt-8">
+            <div className="flex gap-3 mt-8">
               {HEROES.map((_, i) => (
                 <button
                   key={i}
@@ -189,7 +189,7 @@ export function GameSetupPage() {
                     setHeroIndex(i)
                     setSelectedHero(HEROES[i])
                   }}
-                  className="w-2 h-2 rounded-full transition-all"
+                  className="w-3 h-3 rounded-full transition-all"
                   style={{
                     background: i === heroIndex ? '#f0e4c4' : 'rgba(160,140,100,0.3)',
                   }}

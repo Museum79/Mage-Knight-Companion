@@ -12,7 +12,7 @@
   top: 0;
   left: 0;
   right: 0;
-  height: 480px;
+  height: 55vh;
   width: 100%;
   object-fit: cover;
   object-position: center 22%;
@@ -24,7 +24,7 @@
   top: 0;
   left: 0;
   right: 0;
-  height: 480px;
+  height: 55vh;
   background: linear-gradient(180deg,
     rgba(8, 6, 4, 0.4) 0%,
     transparent 35%,
@@ -45,12 +45,18 @@
   z-index: 5;
   display: flex;
   justify-content: center;
-  padding-top: 56px;
+  padding-top: 32px;
 }
 
-@media (min-width: 641px) and (max-width: 1024px) {
+@media (min-width: 641px) {
   .logoWrap {
     padding-top: 40px;
+  }
+
+  @media (min-width: 1025px) {
+    .logoWrap {
+      padding-top: 56px;
+    }
   }
 }
 
@@ -226,10 +232,13 @@
 /* ── Mobile tweaks ──────────────────────────────────────────── */
 @media (max-width: 640px) {
   .chapters {
-    padding: 20px 14px 12px;
-    gap: 10px;
+    padding: 18px 12px 12px;
+    gap: 8px;
   }
   .chapterContent {
-    padding: 14px 14px;
+    padding: 12px 12px;
+  }
+  .chapter {
+    min-height: 90px;
   }
 }
