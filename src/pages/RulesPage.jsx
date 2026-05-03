@@ -77,7 +77,7 @@ export function RulesPage() {
         aria-label="Conversation avec l'Oracle"
       >
         {isEmpty && !isLoading && (
-          <EmptyState onSelect={sendMessage} isLoading={isLoading} />
+          <EmptyState />
         )}
 
         {messages.map((msg, i) => <MessageBubble key={msg.id} message={msg} index={i} />)}
