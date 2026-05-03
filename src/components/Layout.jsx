@@ -20,7 +20,7 @@ export function Layout() {
   const isHome = pathname === '/'
 
   return (
-    <div className="relative min-h-screen flex flex-col" style={{ color: 'var(--text-primary)', background: isHome ? 'var(--bg-primary)' : 'transparent' }}>
+    <div className="relative h-full flex flex-col overflow-hidden" style={{ color: 'var(--text-primary)', background: isHome ? 'var(--bg-primary)' : 'transparent', touchAction: 'manipulation' }}>
 
       {!isHome && (
         <>

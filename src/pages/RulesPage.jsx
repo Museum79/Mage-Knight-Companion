@@ -106,7 +106,7 @@ export function RulesPage() {
       {/* Input */}
       <form
         onSubmit={handleSubmit}
-        className="px-4 py-3 flex gap-2 relative"
+        className="shrink-0 px-4 py-3 flex gap-2 relative"
         style={{ borderTop: '1px solid rgba(116,95,63,0.2)' }}
       >
         <input
@@ -122,6 +122,7 @@ export function RulesPage() {
             boxShadow: inputFocused
               ? '0 0 0 2px rgba(200,160,40,0.35), 0 0 14px rgba(200,160,40,0.2)'
               : undefined,
+            resize: 'none',
           }}
         />
         <button
